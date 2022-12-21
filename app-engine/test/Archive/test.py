@@ -1,8 +1,8 @@
 import requests
 import json
 
-city = "Bangalore"
-country = "India"
+city = "Indianapolis"
+country = "US"
 
 api_key = "aca82b561b9b05d6651612c4332fed2f"
 
