@@ -7,7 +7,6 @@ def hello_world(request):
         A = float(vals[0])
         B = float(vals[1])
         C = float(vals[2])
-        #result = round((math.sqrt(abs(A))+ B ** 3) + C ** (1. /3), 3)
         result = (A+B+C)
     else:
         A = ''
