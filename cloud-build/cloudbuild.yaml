@@ -17,7 +17,7 @@ steps:
     - 'deploy'
     - 'cloud-run-demo'
     - '--image'
-    - 'gcr.io/elated-scope-364104/weather-app-build'
+    - 'gcr.io/elated-scope-364104/weather-app'
     - '--region'
     - 'us-central1'
     - '--port'
