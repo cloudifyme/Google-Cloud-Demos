@@ -1,0 +1,27 @@
+steps:
+
+#Build and tag docker container
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'gcr.io/elated-scope-364104/weather-app-build', './']
+
+#Push Container to container registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'push', 'gcr.io/elated-scope-364104//weather-app-build']
+
+#Deploy to cloud run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+    - 'run'
+    - 'deploy'
+    - 'cloudrunservice'
+    - '--image'
+    - 'gcr.io/elated-scope-364104/weather-app-build'
+    - '--region'
+    - 'us-central1'
+    - '--port'
+    - '5000'
+    - '--platform'
+    - 'managed'
+    - '--allow-unauthenticated'
+images:
+  - 'gcr.io/elated-scope-364104/weather-app-build'
