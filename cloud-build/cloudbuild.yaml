@@ -1,19 +1,21 @@
 steps:
 
+# Change the project name to your project name. In this demo, the project name is - elated-scope-364104
+
 #Build and tag docker container
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'gcr.io/elated-scope-364104/weather-app-build', './']
+    args: [ 'build', '-t', 'gcr.io/elated-scope-364104/weather-app', '.']
 
 #Push Container to container registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push', 'gcr.io/elated-scope-364104//weather-app-build']
+    args: [ 'push', 'gcr.io/elated-scope-364104/weather-app']
 
 #Deploy to cloud run
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
     - 'run'
     - 'deploy'
-    - 'cloudrunservice'
+    - 'cloud-run-demo'
     - '--image'
     - 'gcr.io/elated-scope-364104/weather-app-build'
     - '--region'
@@ -24,4 +26,4 @@ steps:
     - 'managed'
     - '--allow-unauthenticated'
 images:
-  - 'gcr.io/elated-scope-364104/weather-app-build'
+  - 'gcr.io/elated-scope-364104/weather-app'
