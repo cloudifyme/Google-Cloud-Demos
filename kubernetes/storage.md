@@ -20,7 +20,7 @@ Lets create a prod storage class.
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: gold
+  name: prod
 provisioner: kubernetes.io/gce-pd
 volumeBindingMode: Immediate
 allowVolumeExpansion: true
@@ -60,7 +60,7 @@ apiVersion: v1
  metadata:
    name: webapps-storage
  spec:
-   storageClassName: gold
+   storageClassName: prod
    accessModes:
      - ReadWriteOnce
    resources:
