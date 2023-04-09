@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template_string
 
-
 def hello_world(request):
     if request.method == 'POST':
         vals = request.form.getlist('numbers')
